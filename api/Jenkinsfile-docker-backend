@@ -30,7 +30,7 @@ pipeline {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
-        stage('pushing the docker image into dockerhub') {
+        stage('pushing the docker image into Dockerhub') {
             steps {
                   sh 'docker push Manojpadala/backend-lms'
             }
