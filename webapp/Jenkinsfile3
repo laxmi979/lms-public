@@ -3,9 +3,9 @@ pipeline {
 
     environment {
 
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-     registry = "yellaiahdocker/kona"
-        registryCredential = 'dockerhub'
+    DOCKERHUB_CREDENTIALS = credentials('Dockerhub')
+     registry = "manojpadala/kona"
+        registryCredential = 'Dockerhub'
         dockerImage = ''
     }
 
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Building the docker image') {
             steps {
-                sh 'cd webapp && docker build -t yellaiahdocker/kona .'
+                sh 'cd webapp && docker build -t manojpadala/kona .'
             }
         }
         stage('Logging into dockerhub account') {
@@ -23,12 +23,12 @@ pipeline {
         }
         stage('pushing the docker image into dockerhub') {
             steps {
-                  sh 'docker push yellaiahdocker/kona'
+                  sh 'docker push manojpadala/kona'
             }
         }
         stage('Remove old docker images') {
              steps {
-                 sh 'docker rmi -f yellaiahdocker/kona'
+                 sh 'docker rmi -f manojpadala/kona'
 
             }
         }
