@@ -12,9 +12,6 @@ pipeline {
     }
 
     stages {
-        stage('creating new docker network'){
-            steps {
-                sh '
 
         stage('Building the docker image') {
             steps {
