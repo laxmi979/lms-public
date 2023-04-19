@@ -4,7 +4,7 @@ pipeline {
     environment {
 
     DOCKERHUB_CREDENTIALS = credentials('Dockerhub')
-     registry = "manojpadala/kona"
+     registry = "manojpadala/fronted-lms"
         registryCredential = 'Dockerhub'
         dockerImage = ''
     }
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Building the docker image') {
             steps {
-                sh 'cd webapp && docker build -t manojpadala/kona .'
+                sh 'cd webapp && docker build -t manojpadala/fronted-lms .'
             }
         }
         stage('Logging into dockerhub account') {
@@ -23,12 +23,12 @@ pipeline {
         }
         stage('pushing the docker image into dockerhub') {
             steps {
-                  sh 'docker push manojpadala/kona'
+                  sh 'docker push manojpadala/fronted-lms'
             }
         }
         stage('Remove old docker images') {
              steps {
-                 sh 'docker rmi -f manojpadala/kona'
+                 sh 'docker rmi -f manojpadala/fronted-lms'
 
             }
         }
